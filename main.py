@@ -2,10 +2,12 @@
 Name(s): Vera Leng
 Name of Project: 
 """
-yourhealth = 4
-yourattack = 2
-goathealth = 3
-goatattack = 3
+
+ah = {}
+ah["yourhealth"] = 4
+ah["yourattack"] = 2
+ah["goathealth"] = 3
+ah["goatattack"] = 3
 
 def begin():
   print("While traveling on a long, abandoned path, you encounter a mysterious traveler. The mysterious traveler stops you and asks for you to retrieve a bag of gold from a cave at the top of a mountain and get it for them, and offers some gold in return for your efforts. Do you go up the mountain, or refuse.\n")
@@ -87,12 +89,11 @@ def pathup():
   print("\nYou start up the path, which starts heading up a cliff.")
   goatpath()
 
-#GOATSSS
 
 
 def goatpath():
   print("\nSuddenly, you get stopped by a vicious looking mountain goat blocking your path. Do you run away from the goat, grab a nearby stick and attack the goat, or use the stick to defend yourself from the goat?\n")
-  print("Your health: ", yourhealth, "\nYour attack: ", yourattack, "\nGoat's health: ", goathealth, "\nGoat's attack: ", goatattack)
+  print("Your health: ", ah["yourhealth"], "\nYour attack: ", ah["yourattack"], "\nGoat's health: ", ah["goathealth"], "\nGoat's attack: ", ah["goatattack"])
   choice = input("Enter A to attack the goat, D to defend from the goat, or R to run back down the path.\n")
   while choice != "R" and choice != "A" and choice != "D":
     print("You must choose either A, D, or R. \n")
@@ -111,16 +112,12 @@ def mountainending1():
 
 def attackcliff():
   print("\nYou attack the goat with your stick. It tumbles backwards and doesn't attack you back.")
-  global yourhealth
-  global yourattack
-  global goathealth
-  global goatattack 
-  goathealth = int(goathealth) - int(yourattack)
-  if goathealth <= 0:
+  ah["goathealth"] = ah["goathealth"] - ah["yourattack"]
+  if ah["goathealth"] <= 0:
     print("You kill the goat. Nice!")
     goatdie()
   else:
-    print("Your health: ", yourhealth, "\nYour attack: ", yourattack, "\nGoat's health: ", goathealth, "\nGoat's attack: ", goatattack)
+    print("Your health: ", ah["yourhealth"], "\nYour attack: ", ah["yourattack"], "\nGoat's health: ", ah["goathealth"], "\nGoat's attack: ", ah["goatattack"])
     choice = input("Enter A to attack the goat or D to defend from the goat.\n")
     while choice != "A" and choice != "D":
       print("You must choose either A or D.\n")
@@ -132,15 +129,11 @@ def attackcliff():
 
 def defendcliff():
   print("\nYou attempt to defend yourself with a stick, but end up slipping backwards and taking 1 damage from the goat.\n")
-  global yourhealth
-  global yourattack
-  global goathealth
-  global goatattack 
-  yourhealth = int(yourhealth) - 1
-  if yourhealth <= 0:
+  ah["yourhealth"] = ah["yourhealth"] - 1
+  if ah["yourhealth"] <= 0:
     print("You have died from a deadly goat attack. Game Over!")
   else:
-    print("Your health: ", yourhealth, "\nYour attack: ", yourattack, "\nGoat's health: ", goathealth, "\nGoat's attack: ", goatattack)
+    print("Your health: ", ah["yourhealth"], "\nYour attack: ", ah["yourattack"], "\nGoat's health: ", ah["goathealth"], "\nGoat's attack: ", ah["goatattack"])
     choice = input("Enter A to attack the goat or D to defend from the goat.\n")
     while choice != "A" and choice != "D":
       print("You must choose either A or D.\n")
@@ -184,7 +177,7 @@ def pathright():
 
 def overtree():
   print("\nYou climb over the tree, only to encounter a rabid mountain goat. Do you run back and hide under the tree, grab a nearby stick and attack the goat, or use the stick to defend yourself from the goat?\n")
-  print("Your health: ", yourhealth, "\nYour attack: ", yourattack, "\nGoat's health: ", goathealth, "\nGoat's attack: ", goatattack)
+  print("Your health: ", ah["yourhealth"], "\nYour attack: ", ah["yourattack"], "\nGoat's health: ", ah["goathealth"], "\nGoat's attack: ", ah["goatattack"])
   choice = input("Enter H to hide under the tree, A to attack the goat, or D to defend yourself from the goat.\n")
   while choice != "H" and choice != "A" and choice != "D":
     print("You must choose either H, A, or D.\n")
@@ -202,16 +195,12 @@ def hideover():
 
 def attackover():
   print("\nYou attack the goat with your stick. It tumbles backwards and doesn't attack you back.")
-  global yourhealth
-  global yourattack
-  global goathealth
-  global goatattack 
-  goathealth = int(goathealth) - int(yourattack)
-  if goathealth <= 0:
+  ah["goathealth"] = int(ah["goathealth"]) - int(ah["yourattack"])
+  if ah["goathealth"] <= 0:
     print("You kill the goat. Nice!")
     goatdie()
   else:
-    print("Your health: ", yourhealth, "\nYour attack: ", yourattack, "\nGoat's health: ", goathealth, "\nGoat's attack: ", goatattack)
+    print("Your health: ", ah["yourhealth"], "\nYour attack: ", ah["yourattack"], "\nGoat's health: ", ah["goathealth"], "\nGoat's attack: ", ah["goatattack"])
     choice = input("Enter A to attack the goat or D to defend from the goat.\n")
     while choice != "A" and choice != "D":
       print("You must choose either A or D.\n")
@@ -223,15 +212,11 @@ def attackover():
 
 def defendover():
   print("\nYou attempt to defend yourself with a stick, but end up pinned against the tree and taking 1 damage from the goat.\n")
-  global yourhealth
-  global yourattack
-  global goathealth
-  global goatattack 
-  yourhealth = int(yourhealth) - 1
-  if yourhealth <= 0:
+  ah["yourhealth"] = int(ah["yourhealth"]) - 1
+  if ah["yourhealth"] <= 0:
     print("You have died from a deadly goat attack. Game Over!")
   else:
-    print("Your health: ", yourhealth, "\nYour attack: ", yourattack, "\nGoat's health: ", goathealth, "\nGoat's attack: ", goatattack)
+    print("Your health: ", ah["yourhealth"], "\nYour attack: ", ah["yourattack"], "\nGoat's health: ", ah["goathealth"], "\nGoat's attack: ", ah["goatattack"])
     choice = input("Enter A to attack the goat or D to defend from the goat.\n")
     while choice != "A" and choice != "D":
       print("You must choose either A or D.\n")
@@ -244,7 +229,7 @@ def defendover():
 
 def undertree():
   print("\nYou climb under the tree, only to see a rabid mountain goat out from under the tree. Do you hide where you are, or attack with a sharp stick from the tree?\n")
-  print("Your health: ", yourhealth, "\nYour attack: ", yourattack, "\nGoat's health: ", goathealth, "\nGoat's attack: ", goatattack)
+  print("Your health: ", ah["yourhealth"], "\nYour attack: ", ah["yourattack"], "\nGoat's health: ", ah["goathealth"], "\nGoat's attack: ", ah["goatattack"])
   choice = input("Enter H to hide by the tree, or A to attack the goat.\n")
   while choice != "H" and choice != "A":
     print("You must choose either H or A.\n")
@@ -260,19 +245,15 @@ def hideunder():
 
 def attackunder():
   print("\nYou attack the goat with your stick, but get yourself stuck under the tree, giving the goat 1 damage and yourself 2.")
-  global yourhealth
-  global yourattack
-  global goathealth
-  global goatattack 
-  goathealth = goathealth - 1
-  yourhealth = yourhealth - 2
-  if goathealth <= 0:
+  ah["goathealth"] = ah["goathealth"] - 1
+  ah["yourhealth"] = ah["yourhealth"] - 2
+  if ah["goathealth"] <= 0:
     print("You kill the goat. Nice!")
     goatdie()
-  elif yourhealth <= 0:
+  elif ah["yourhealth"] <= 0:
     print("You have died from a deadly goat attack. Game Over!")
   else:
-    print("Your health: ", yourhealth, "\nYour attack: ", yourattack, "\nGoat's health: ", goathealth, "\nGoat's attack: ", goatattack)
+    print("Your health: ", ah["yourhealth"], "\nYour attack: ", ah["yourattack"], "\nGoat's health: ", ah["goathealth"], "\nGoat's attack: ", ah["goatattack"])
     choice = input("Enter A to attack the goat or D to defend from the goat.\n")
     while choice != "A" and choice != "D":
       print("You must choose either A or D.\n")
@@ -282,19 +263,15 @@ def attackunder():
     elif choice == "D":
       defendover()
 
-def defendover():
+def defendunder():
   print("\nYou successfully defend yourself with a stick from under the tree, and cause the goat to take 1 damage from the sharp branches around you.\n")
-  global yourhealth
-  global yourattack
-  global goathealth
-  global goatattack 
-  goathealth = goathealth - 1
-  if yourhealth <= 0:
+  ah["goathealth"] = ah["goathealth"] - 1
+  if ah["yourhealth"] <= 0:
     print("You have died from a deadly goat attack. Game Over!")
-  elif goathealth <= 0:
+  elif ah["goathealth"] <= 0:
     goatdie()
   else:
-    print("Your health: ", yourhealth, "\nYour attack: ", yourattack, "\nGoat's health: ", goathealth, "\nGoat's attack: ", goatattack)
+    print("Your health: ", ah["yourhealth"], "\nYour attack: ", ah["yourattack"], "\nGoat's health: ", ah["goathealth"], "\nGoat's attack: ", ah["goatattack"])
     choice = input("Enter A to attack the goat or D to defend from the goat.\n")
     while choice != "A" and choice != "D":
       print("You must choose either A or D.\n")
